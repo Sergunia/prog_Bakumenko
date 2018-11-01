@@ -30,7 +30,7 @@ def draw_pictures():
 
 def draw_some_pictures(pic,x,y):
     """
-        Рисует все элементы из Pictures с отступом 200 от предыдущего
+        Рисует все элементы из pictures с отступом 200 от предыдущего
     """ 
     for step in range (len(pic)):
         draw_picture(x, y, pic[step])
