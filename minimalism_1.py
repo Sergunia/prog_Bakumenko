@@ -4,6 +4,12 @@ import graphics as gr
 window = gr.GraphWin("Minimalism", 1200, 700)
     
 
+def main():
+    draw_janssen_picture()
+    window.getMouse()
+    window.close()
+
+    
 def draw_janssen_picture():
     draw_floor_plinth_wall()
     draw_pictures()
@@ -20,7 +26,9 @@ def draw_floor_plinth_wall():
 
 def draw_pictures():
     # let's define colours of three pictures
-    pictures = [((153, 154, 158), (180, 182, 181), (172, 176, 177), (214, 214, 214)), ((65, 67, 66), (6, 8, 7), (157, 158, 160), (25, 29, 30)), ((202, 204, 203), (213, 213, 213), (223, 223, 223), (23, 27, 26))]
+    pictures = [((153, 154, 158), (180, 182, 181), (172, 176, 177), (214, 214, 214)),
+                ((65, 67, 66), (6, 8, 7), (157, 158, 160), (25, 29, 30)),
+                ((202, 204, 203), (213, 213, 213), (223, 223, 223), (23, 27, 26))]
     
     # Set point (xo,yo): left corner of Picture1
     xo = 350
@@ -63,8 +71,15 @@ def draw_rectangle(x, y, length, height, r, g, b):
     rectangle.draw(window)
 
 
-draw_janssen_picture()
+main()
 
-window.getMouse()
-window.close()
+
+
+
+
+
+
+
+
+
 
