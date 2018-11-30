@@ -74,8 +74,23 @@ def draw_rectangle(x, y, length, height, r, g, b):
     rectangle.draw(window)
 
 def draw_visitor():
-    global wheel_back, wheel_forward, main_part, rudder, wheel_forward_center, rudder_wheel_stick, rudder_wheel_circle
-    global body, head, hand
+    """
+        Рисует посетителя на мотоцикле.
+            Посетитель:
+                head(),
+                hand(),
+                body().
+            Мотоцикл:
+                wheel_back(),
+                wheel_forward(),
+                main_part(),
+                rudder(),
+                wheel_forward_center(),
+                rudder_wheel_stick(),
+                rudder_wheel_circle().
+    """
+    global wheel_back, wheel_forward, main_part, rudder, wheel_forward_center, rudder_wheel_stick, rudder_wheel_circle, body, head, hand, Elements
+    
     wheel_back = gr.Circle(gr.Point(50,620), 50)
     wheel_back.setFill('grey')
     wheel_back.setOutline('black')
@@ -116,31 +131,20 @@ def draw_visitor():
     head.setFill('yellow')
     head.setOutline('yellow')
 
-    wheel_back.draw(window)
-    wheel_forward.draw(window)
-    main_part.draw(window)
-    rudder.draw(window)
-    wheel_forward_center.draw(window)
-    rudder_wheel_stick.draw(window)
-    rudder_wheel_circle.draw(window)
-    body.draw(window)
-    hand.draw(window)
-    head.draw(window)
+    Elements = (wheel_back, wheel_forward, main_part, rudder_wheel_stick, rudder, wheel_forward_center,
+                rudder_wheel_circle, body, hand, head)
+    
+    for k in range (len(Elements)):
+            Elements[k].draw(window)
 
 
 def move_visitor():
+    
     for i in range(390):
-        wheel_back.move(10, 0)
-        wheel_forward.move(9, 0)
-        main_part.move(8, 0)
-        rudder.move(7, 0)
-        wheel_forward_center.move(6, 0)
-        rudder_wheel_stick.move(5, 0)
-        rudder_wheel_circle.move(4, 0)
-        body.move(3, 0)
-        hand.move(2, 0)
-        head.move(1, 0)
-        time.sleep(0.1)
+        for k in range (len(Elements)):
+            Elements[k].move(3, 0)
+    time.sleep(0.1)
+        
 
 main()
 
