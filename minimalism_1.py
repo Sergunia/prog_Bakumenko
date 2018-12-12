@@ -72,14 +72,3 @@ def draw_rectangle(x, y, length, height, r, g, b):
 
 
 main()
-
-
-
-
-
-
-
-
-
-
-
