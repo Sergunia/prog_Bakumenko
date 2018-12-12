@@ -14,6 +14,11 @@ def main():
 
     
 def draw_janssen_picture():
+    """
+        Рисует все кроме посетителя:
+            draw_floor_plinth_wall() рисует пол, плинтус и стену.
+            draw_pictures() рисует картины.
+    """
     draw_floor_plinth_wall()
     draw_pictures()
 
@@ -88,6 +93,7 @@ def draw_visitor():
                 wheel_forward_center(),
                 rudder_wheel_stick(),
                 rudder_wheel_circle().
+            Список Elements содержит в себе все элементы изображения посетителя.
     """
     global wheel_back, wheel_forward, main_part, rudder, wheel_forward_center, rudder_wheel_stick, rudder_wheel_circle, body, head, hand, Elements
     
@@ -139,8 +145,7 @@ def draw_visitor():
 
 
 def move_visitor():
-    
-    for i in range(390):
+    for i in range(400):
         for k in range (len(Elements)):
             Elements[k].move(3, 0)
     time.sleep(0.1)
