@@ -3,23 +3,28 @@ import graphics as gr
 import random as random
 
 
-root = Tk()
-root.geometry('1000x1000')
-canv = Canvas(root, bg='white')
-canv.pack(fill=BOTH, expand=1)
-
-
 clicks = 0
 missed = 0
 points = 0
 
+x_circle = 0
+y_circle = 0
+radius = 0
+
 
 def main():
     # Нажатием кнопки вызываю соответств. функцию
+    root = Tk()
+    root.geometry('1000x1000')
+    canv = Canvas(root, bg='white')
+    canv.pack(fill=BOTH, expand=1)
+
     print("main")
     canv.bind('<Button-1>', left_click)
     canv.pack(fill=BOTH, expand=1)
     root.after_idle(tick)
+
+    mainloop()
 
 
 def left_click(signal):
@@ -30,7 +35,7 @@ def left_click(signal):
     global x_circle, y_circle, radius
     if (x - x_circle) ^ 2 + (y - y_circle) ^ 2 <= radius ^ 2 and clicks == 0:
         points += 1
-    else:
+    elif (x - x_circle) ^ 2 + (y - y_circle) ^ 2 > radius ^ 2 and clicks == 0:
         missed += 1
     clicks += 1
 
@@ -63,4 +68,3 @@ def draw_circle_wherever():
 
 
 main()
-mainloop()

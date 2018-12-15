@@ -3,13 +3,14 @@
 from gameunit import *
 from random import randint, choice
 
+
 class Enemy(Attacker):
     pass
 
 
 def generate_random_enemy():
-    RandomEnemyType = choice(enemy_types)
-    enemy = RandomEnemyType()
+    random_enemy_type = choice(enemy_types)
+    enemy = random_enemy_type()
     return enemy
 
 
@@ -33,11 +34,12 @@ class GreenDragon(Dragon):
         self._color = 'зелёный Бек'
 
     def question(self):
-        x = randint(1,100)
-        y = randint(1,100)
+        x = randint(1, 100)
+        y = randint(1, 100)
         self.__quest = str(x) + '+' + str(y)
         self.set_answer(x + y)
         return self.__quest
+
 
 class RedDragon(Dragon):
     def __init__(self):
@@ -52,6 +54,7 @@ class RedDragon(Dragon):
         self.set_answer(x - y)
         return self.__quest
 
+
 class BlackDragon(Dragon):
     def __init__(self):
         self._health = 200
@@ -59,13 +62,13 @@ class BlackDragon(Dragon):
         self._color = 'черный Гаусс'
 
     def question(self):
-        x = randint(1,100)
-        y = randint(1,100)
+        x = randint(1, 100)
+        y = randint(1, 100)
         self.__quest = str(x) + '*' + str(y)
         self.set_answer(x * y)
         return self.__quest
 
-#FIXME здесь также должны быть описаны классы RedDragon и BlackDragon
+# FIXME здесь также должны быть описаны классы RedDragon и BlackDragon
 # красный дракон учит вычитанию, а чёрный -- умножению.
 
 
