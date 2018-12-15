@@ -36,11 +36,11 @@ def draw_pictures():
     draw_some_pictures(pictures, xo, yo)
 
 
-def draw_some_pictures(pic,x,y):
+def draw_some_pictures(pic, x, y):
     """
         Рисует все элементы из pictures с отступом 200 от предыдущего
     """ 
-    for step in range (len(pic)):
+    for step in range(len(pic)):
         draw_picture(x, y, pic[step])
         x += 200
 
