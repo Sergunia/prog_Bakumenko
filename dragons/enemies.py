@@ -21,10 +21,10 @@ def generate_dragon_list(enemy_number):
 
 class Dragon(Enemy):
     def set_answer(self, answer):
-        self.__answer = answer
+        self.answer = answer
 
     def check_answer(self, answer):
-        return answer == self.__answer
+        return answer == self.answer
 
 
 class GreenDragon(Dragon):
@@ -48,8 +48,8 @@ class RedDragon(Dragon):
         self._color = 'красный Овчинников'
 
     def question(self):
-        x = randint(1,100)
-        y = randint(1,100)
+        x = randint(1, 100)
+        y = randint(1, 100)
         self.__quest = str(x) + '-' + str(y)
         self.set_answer(x - y)
         return self.__quest
@@ -67,9 +67,6 @@ class BlackDragon(Dragon):
         self.__quest = str(x) + '*' + str(y)
         self.set_answer(x * y)
         return self.__quest
-
-# FIXME здесь также должны быть описаны классы RedDragon и BlackDragon
-# красный дракон учит вычитанию, а чёрный -- умножению.
 
 
 enemy_types = [GreenDragon, RedDragon, BlackDragon]

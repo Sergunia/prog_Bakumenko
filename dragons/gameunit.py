@@ -11,4 +11,3 @@ class Attacker:
 
     def is_alive(self):
         return self._health > 0
-    

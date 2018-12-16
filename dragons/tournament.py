@@ -4,9 +4,9 @@ from enemies import *
 from hero import *
 
 
-def annoying_input_int(message =''):
+def annoying_input_int(message=''):
     answer = None
-    while answer == None:
+    while answer is None:
         try:
             answer = int(input(message))
         except ValueError:
@@ -42,7 +42,7 @@ def start_game():
 
     try:
         print('Добро пожаловать в арифметико-ролевую игру с драконами!')
-        print('Представьтесь, пожалуйста: ', end = '')
+        print('Представьтесь, пожалуйста: ', end='')
         hero = Hero(input())
 
         dragon_number = 3
