@@ -22,39 +22,43 @@ def main():
     print("main")
     canv.bind('<Button-1>', left_click)
     canv.pack(fill=BOTH, expand=1)
-    root.after_idle(tick)
+    root.after_idle(tick, canv, root)
 
     mainloop()
 
 
 def left_click(signal):
-    print("left_click")
+    print("left_click", signal.x, signal.y)
     global points, missed, clicks
     x = signal.x
     y = signal.y
     global x_circle, y_circle, radius
-    if (x - x_circle) ^ 2 + (y - y_circle) ^ 2 <= radius ^ 2 and clicks == 0:
+    print(x_circle, y_circle)
+    print(radius)
+    if (x - x_circle) ** 2 + (y - y_circle) ** 2 <= radius ** 2 and clicks == 0:
         points += 1
-    elif (x - x_circle) ^ 2 + (y - y_circle) ^ 2 > radius ^ 2 and clicks == 0:
+    elif (x - x_circle) ** 2 + (y - y_circle) ** 2 > radius ** 2 and clicks == 0:
         missed += 1
     clicks += 1
+    print("points ", points)
+    print("missed ", points)
 
 
-def tick():
+def tick(canv, root):
     # Pеализует периодические (Т = 2 с) появление круга и последующее его удаление. Выводит количество points, missed.
     print("tick")
     global clicks
     clicks = 0
     canv.delete(ALL)
-    draw_circle_wherever()
+    draw_circle_wherever(canv)
     canv.create_text(20, 350, text="Points:", font="Verdana 12", anchor="w")
     canv.create_text(100, 350, text=points, font="Verdana 18", anchor="w")
     canv.create_text(20, 380, text="Missed:", font="Verdana 18", anchor="w")
     canv.create_text(130, 380, text=missed, font="Verdana 18", anchor="w")
-    root.after(2000, tick)
+    root.after(2000, tick, canv, root)
 
 
-def draw_circle_wherever():
+def draw_circle_wherever(canv):
     print("draw_circle_wherever")
     global x_circle, y_circle, radius
     x_circle = random.randint(150, 650)
@@ -67,4 +71,5 @@ def draw_circle_wherever():
                      fill=gr.color_rgb(red, green, blue))
 
 
-main()
+if __name__ == "__main__":
+    main()

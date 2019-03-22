@@ -71,4 +71,5 @@ def draw_rectangle(x, y, length, height, r, g, b):
     rectangle.draw(window)
 
 
-main()
+if __name__ == "__main__":
+    main()

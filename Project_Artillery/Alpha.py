@@ -139,10 +139,7 @@ class Ball:
             self.live -= 1
             if self.live < 0:
                 self.kill()
-                canv.delete(canv.create_text(650, 100,
-                     text=self.text_wind,
-                     font=("Times New Roman", 20),
-                     fill="black"))
+                canv.delete(a)
 
         if self.x > 990:
             """отвечает за поворот шарика при ударе о стену"""
@@ -358,7 +355,7 @@ class Game:
             time.sleep(0.01)
         
 def show_wind(vx, vy):
-    global v_wind_text
+    global a
     if vx < -5:
         print ("ветер сильно сдувает на запад")
         vx_text = "ветер сильно сдувает на запад"
@@ -385,7 +382,7 @@ def show_wind(vx, vy):
         vy_text = " и сильно поднимает к небу"
     print("vx_wind = ", vx, "vy_wind = ", vy)
     v_wind_text = vx_text+vy_text
-    canv.create_text(450, 10,
+    a = canv.create_text(450, 10,
                      text=v_wind_text,
                      font=("Times New Roman", 20),
                      fill="black")
